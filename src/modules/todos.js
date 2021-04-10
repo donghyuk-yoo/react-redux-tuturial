@@ -5,13 +5,13 @@ const TOGGLE = 'todos/TOGGLE'; // todo 체크/해제
 const REMOVE = 'todos/REMOVE'; // todo 제거
 
 // 액션 생성 함수, 액션 객체를 담은 함수
-const chageInput = (input) => ({
+export const chageInput = (input) => ({
   type: CHANGE_INPUT,
   input,
 });
 
 let id = 3;
-const insert = (text) => ({
+export const insert = (text) => ({
   type: INSERT,
   todo: {
     id: id++,
@@ -20,12 +20,12 @@ const insert = (text) => ({
   },
 });
 
-const toggle = (id) => ({
+export const toggle = (id) => ({
   type: TOGGLE,
   id,
 });
 
-const remove = (id) => ({
+export const remove = (id) => ({
   type: REMOVE,
   id,
 });

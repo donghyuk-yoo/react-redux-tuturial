@@ -16,7 +16,7 @@ const initialState = {
 
 // 리듀서 함수
 function counter(state = initialState, action) {
-  switch (action.typa) {
+  switch (action.type) {
     case INCREASE:
       return {
         // 불변성을 지켜 state.number값을 참조한 후 새 객체를 만들어 반환
