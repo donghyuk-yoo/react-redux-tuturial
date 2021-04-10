@@ -1,6 +1,5 @@
 import React from 'react';
 
-// 프레젠테이션 컴포넌트, 보여주기
 const Counter = ({ number, onIncrease, onDecrease }) => {
   return (
     <div>
