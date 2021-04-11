@@ -4,8 +4,8 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
   return (
     <div>
       <input type="checkbox" />
-      <span>텍스트</span>
-      <button>삭제</button>
+      <span>{todo.text}</span>
+      <button onClick={() => onRemove(todo.id)}>삭제</button>
     </div>
   );
 };
@@ -29,12 +29,9 @@ const Todos = ({
         <button type="submit">등록</button>
       </form>
       <div>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {todos.map((todo) => (
+          <TodoItem todo={todo} key={todo.id} onRemove={onRemove} />
+        ))}
       </div>
     </div>
   );
