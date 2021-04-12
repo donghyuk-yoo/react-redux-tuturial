@@ -6,6 +6,7 @@ import rootReducer from './modules/';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+// 스토어 생성, 리듀서 연결(리듀서가 여러개일 경우 루트 리듀서로 묶은 후 스토어에 연결)
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(

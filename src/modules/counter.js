@@ -1,13 +1,18 @@
 // Ducks 패턴 사용
 // (modules디렉토리에 액션 타입, 액션 생성 함수, 리듀서 함수를 기느열로 파일 하나에 몰아서 작성)
+import { createAction } from 'redux-actions';
 
 // 액션 타입 정의
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
 
-// 액션 생성 함수
-export const increase = () => ({ type: INCREASE });
-export const decrease = () => ({ type: DECREASE });
+// 액션 생성 함수, 기본적인 방법
+// export const increase = () => ({ type: INCREASE });
+// export const decrease = () => ({ type: DECREASE });
+
+// redux-actions의 createAction() 사용
+export const increase = createAction(INCREASE);
+export const decrease = createAction(DECREASE);
 
 // 초기 상태
 const initialState = {
