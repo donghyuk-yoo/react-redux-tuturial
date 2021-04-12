@@ -12,3 +12,8 @@ Ducks pattern
 ```
 
 - [x] redux-actions
+
+```
+createAction
+handleActions
+```
