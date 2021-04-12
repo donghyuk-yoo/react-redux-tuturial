@@ -5,7 +5,7 @@ const TOGGLE = 'todos/TOGGLE'; // todo 체크/해제
 const REMOVE = 'todos/REMOVE'; // todo 제거
 
 // 액션 생성 함수, 액션 객체를 담은 함수
-export const chageInput = (input) => ({
+export const changeInput = (input) => ({
   type: CHANGE_INPUT,
   input,
 });

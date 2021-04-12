@@ -1,10 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { chageInput, insert, toggle, remove } from '../modules/todos';
+import { changeInput, insert, toggle, remove } from '../modules/todos';
 import Todos from '../components/Todos';
 
-const TodosContainer = ({ todos, remove }) => {
-  return <Todos todos={todos} onRemove={remove} />;
+const TodosContainer = ({
+  input,
+  todos,
+  changeInput,
+  insert,
+  toggle,
+  remove,
+}) => {
+  return (
+    <Todos
+      input={input}
+      todos={todos}
+      onChangeInput={changeInput}
+      onInsert={insert}
+      onToggle={toggle}
+      onRemove={remove}
+    />
+  );
 };
 
 // state : 현재 스토어가 지니고 있는 상태(리듀서 함수의 state 아님)
@@ -18,6 +34,15 @@ const mapStateToProps = (state) => {
 
 // mapStateToProps의 return문과 동일하게 동작
 const mapDisptchToProps = (dispatch) => ({
+  changeInput: (input) => {
+    dispatch(changeInput(input));
+  },
+  insert: (text) => {
+    dispatch(insert(text));
+  },
+  toggle: (id) => {
+    dispatch(toggle(id));
+  },
   remove: (id) => {
     dispatch(remove(id));
   },
