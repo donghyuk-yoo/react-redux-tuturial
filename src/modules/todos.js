@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-
+import produce from 'immer';
 // 액션 타입 정의
 const CHANGE_INPUT = 'todos/CHANGE_INPUT'; // 인풋값 변경
 const INSERT = 'todos/INSERT'; // 새 todo 등록
@@ -107,14 +107,20 @@ const todos = handleActions(
       // 객체배열1.concat(객체배열2)로 원소들이 1,2 순서로 합쳐진 하나의 객체 배열이 반환된다.
       todos: action.payload.concat(state.todos),
     }),
-    [TOGGLE]: (state, action) => ({
-      ...state,
-      todos: state.todos.map((todo) =>
-        todo.id === action.payload ? { ...todo, done: !todo.done } : todo,
-      ),
-    }),
     // 모든 추가 데이터 값을 action.payload로 사용하다보니 정확히 어떤 값을 의미하는지 알 수 없다.
     // 객체 비구조화 할당으로 해결
+    [TOGGLE]: (state, { payload: id }) =>
+      // 기존 방법
+      // ...state,
+      // todos: state.todos.map((todo) =>
+      //   todo.id === id ? { ...todo, done: !todo.done } : todo,
+      // ),
+      // immer 사용
+      produce(state, (draft) => {
+        const todo = draft.todos.find((todo) => todo.id === id);
+        todo.done = !todo.done;
+      }),
+
     [REMOVE]: (state, { payload: id }) => ({
       ...state,
       todos: state.todos.filter((todo) => todo.id !== id),
