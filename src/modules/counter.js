@@ -10,7 +10,7 @@ const DECREASE = 'counter/DECREASE';
 // export const increase = () => ({ type: INCREASE });
 // export const decrease = () => ({ type: DECREASE });
 
-// redux-actions의 createAction() 사용
+// 액션 생성 함수, redux-actions의 createAction() 사용, 간소화
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
 
