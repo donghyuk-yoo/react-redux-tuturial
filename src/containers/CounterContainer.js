@@ -1,7 +1,8 @@
 // 컨테이너 컴포넌트(스토어와 연결된 컴포넌트), 스토어접근 원하는 상태 받아 오고, 액션도 디스패치
 import React, { useCallback } from 'react';
 // import { connect } from 'react-redux';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useStore } from 'react-redux';
 import Counter from '../components/Counter';
 import { increase, decrease } from '../modules/counter';
 
@@ -13,7 +14,7 @@ const CounterContainer = () => {
   const onDecrease = useCallback(() => dispatch(decrease()), [dispatch]);
 
   // useStore 컴포넌트 내부에서 리덕스 스토어 객체 직접 사용, 꼭 필요한 경우에만 사용
-  const store = useStore();
+  // const store = useStore();
   // store.getState();
   // store.dispatch({type: 'SAMPLE-ACTION'})
 

@@ -115,7 +115,8 @@ const todos = handleActions(
       // todos: state.todos.map((todo) =>
       //   todo.id === id ? { ...todo, done: !todo.done } : todo,
       // ),
-      // immer 사용
+
+      // immer 사용, TOGGLE외에는 가독성이 오히려 나빠져 TOGGLE에만 적용
       produce(state, (draft) => {
         const todo = draft.todos.find((todo) => todo.id === id);
         todo.done = !todo.done;
